@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator BMI</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="icon" href="/image/">
+  </head>
+  <body>
+    <!-- Main Title -->
+    <header class="main-title">
+      <h1>Kalkulator BMI</h1>
+    </header>
+
+    <main>
+      <!-- Main article -->
+      <section class="left-content">
+        <header class="sub-head-1">
+            <h2>Selamat datang di Kalkulator BMI</h2>
+        </header>
+
+        <article>
+            <p>Berat badan ideal adlaah impian semua orang. Tidak hanya memilikia bentuk tubuh yang menunjang penampilan, berat badan ideal juga menandakan kondisi tubuh yang sehat. Bagaimana denganmu? Yuk, hitung sekarang di kalkulator BMI</p>
+        </article>
+
+        <!-- Form -->
+        <section class="left-section">
+          <form action="">
+            <div class="jenis">
+                <div class="input-title">Jenis Kelamin</div>
+                <div class="rad-btn">
+
+                    <div class="male">
+                      <input type="radio" id="selection-male" name="option" value="Pria"/><label for="selection-male">Pria &#9794;</label> 
+                    </div>
+
+                    <div class="female">
+                      <input type="radio" id="selection-female" name="option" value="Wanita"/><label for="selection-female">Wanita &#9792;</label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="mid-content-form">
+                <div>
+                    <label for="berat">Berat Badan (kg)</label>
+                    <input type="number" id="berat" />
+                </div>
+  
+                <div>
+                    <label for="usia">Usia (tahun)</label>
+                    <input type="number" id="usia" />
+                </div>
+  
+                <div>
+                    <label for="tinggi">Tinggi Badan (cm)</label>
+                    <input type="number" id="tinggi" />
+                </div>
+            </div>
+
+            <div class="btn-sub-res">
+              <button onclick="validateForm()" type="button">Hitung BMI</button>
+              <button type="reset">Reset</button>
+            </div>
+
+          </form>
+          
+        </section>
+        
+        <!-- Form article -->
+        <section>
+            <header>
+              <h2>Keunggulan Fitur</h2>
+            </header>
+  
+            <article>
+                <ol>
+                    <li><p>Menghitung berat badan</p></li>
+                    <li><p>Menentukan kategori berat badan ideal atau tidak</p></li>
+                    <li><p>Mempersiapkan program penurunan berat badan</p></li>
+                </ol>
+
+                <div class="paragraf">
+                    <p>
+                      Penghitungan BMI hanya relevan untuk orang dewasa dan tidak dapat diterapkan pada anak-anak atau remaja yang masih dalam masa pertumbuhan karena memerlukan metode evaluasi yang berbeda. Selain itu, wanita hamil atau menyusui tidak boleh mengandalkan BMI sebagai alat pengukur status gizi atau kesehatan, karena perubahan fisiologis selama kehamilan dan menyusui dapat mempengaruhi berat badan dan komposisi tubuh, sehingga menghasilkan gambaran yang tidak akurat tentang kondisi kesehatan mereka.
+                    </p>
+
+                    <p>Menghitung Indeks Massa Tubuh/Body Mass Index (BMI) adalah langkah penting dalam memahami kesehatan dan kesejahteraan tubuh Anda. BMI adalah ukuran yang digunakan untuk mengetahui apakah berat badan Anda proporsional terhadap tinggi badan Anda. Dengan mengetahui BMI, Anda dapat menentukan apakah Anda berada dalam kategori berat badan yang sehat, kurang berat badan, kelebihan berat badan, atau obesitas. Hal ini sangat penting karena berat badan yang tidak ideal dapat meningkatkan risiko berbagai masalah kesehatan, seperti penyakit jantung, diabetes, dan tekanan darah tinggi. Oleh karena itu, mengetahui dan memantau BMI Anda secara berkala dapat membantu Anda mengambil langkah-langkah yang tepat untuk menjaga kesehatan tubuh Anda.</p>
+
+                    <p>Selain memberikan informasi tentang status berat badan, penghitung BMI kami juga menawarkan saran dan rekomendasi berdasarkan hasil perhitungan Anda. Misalnya, jika BMI Anda menunjukkan bahwa Anda berada dalam kategori kurang berat badan, kelebihan berat badan, atau obesitas, Anda akan menerima panduan tentang langkah-langkah yang dapat diambil untuk mencapai berat badan yang sehat. Fitur ini dirancang untuk membantu Anda membuat keputusan yang lebih baik mengenai pola makan, aktivitas fisik, dan gaya hidup Anda secara keseluruhan. Dengan menggunakan penghitung BMI kami, Anda tidak hanya mendapatkan angka, tetapi juga informasi dan dukungan yang Anda butuhkan untuk mencapai dan mempertahankan kesehatan yang optimal.</p>
+                </div>
+
+            </article>
+        </section>
+
+      </section>
+
+      <!-- Right Content -->
+      <section class="right-content">
+        <!-- Result article -->
+        <article>
+          <header class="sub-head-2">
+            <h2>Hasil</h2>
+          </header>
+
+          <!-- Result Section -->
+          <section class="right-content-section">
+            <p id="hasil"></p>
+
+            <h2 id="angka-hasil">hasil hitung akan di tampilkan disini</h2>
+
+            <p id="anda-memiliki"></p>
+          </section>
+
+          <!-- Result Article -->
+          <article>
+            <p id="gender"></p>
+            <p id="umur"></p>         
+            <p id="article-hasil"></p>
+          </article>
+
+          <!-- General Information -->
+          <section>
+            <div class="gen-info">
+              <h2>Catatan</h2>
+              <p>Meskipun BMI (Body Mass Index/Indeks Massa Tubuh) adalah alat yang berguna untuk mengkategorikan berat badan seseorang dalam rentang tertentu, penting untuk diingat bahwa BMI tidak sepenuhnya mewakili kondisi kesehatan atau diagnosis medis seseorang. Berikut beberapa catatan penting mengenai BMI :</p>
+              <ul>
+                <li>
+                  <h3>Tidak Membedakan Antara Lemak dan Massa Otot :</h3>
+                  <p>BMI tidak dapat membedakan antara lemak tubuh dan massa otot. Seseorang dengan massa otot yang tinggi mungkin memiliki BMI tinggi, tetapi sebenarnya memiliki sedikit lemak tubuh.</p>
+                </li>
+                <li>
+                  <h3>Tidak Memperhitungkan Distribusi Lemak Tubuh :</h3>
+                  <p>BMI tidak memberikan informasi tentang distribusi lemak tubuh. Lemak yang disimpan di sekitar perut (lemak visceral) lebih berbahaya dibandingkan lemak yang disimpan di bagian lain tubuh.</p>
+                </li>
+                <li>
+                  <h3>Variasi Berdasarkan Usia, Jenis Kelamin, dan Etnis :</h3>
+                  <p>BMI tidak memperhitungkan perbedaan fisiologis yang dapat mempengaruhi komposisi tubuh berdasarkan usia, jenis kelamin, atau etnis.</p>
+                </li>
+                <li>
+                  <h3>Kondisi Kesehatan Lain :</h3>
+                  <p>Faktor kesehatan lainnya seperti tekanan darah, kadar kolesterol, dan riwayat keluarga juga penting untuk mempertimbangkan risiko kesehatan secara keseluruhan.</p>
+                </li>
+                <li>
+                  <h3>Konsultasi dengan Profesional Kesehatan :</h3>
+                  <p>Penting untuk berkonsultasi dengan profesional kesehatan untuk evaluasi yang lebih mendalam. Mereka dapat menggunakan alat ukur tambahan dan tes kesehatan lain untuk memberikan gambaran yang lebih akurat tentang kesehatan individu.</p>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </article>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <h5>&copy; 2024 Anang Setiaji/iKzuu. All rights reserved. | Developed by Anang Setiaji | Reference Design by Fundamental Course RevoU</h5>
+    </footer>
+
+    <!-- pop up message -->
+     <div id="overlay"></div>
+     <div id="popup">
+      <p id="popupMessage"></p>
+      <button onclick="closePopup()">Close</button>
+     </div>
+
+    <!-- Javascript connect -->
+    <script src="/javascript/script.js"></script>
+  </body>
+</html>

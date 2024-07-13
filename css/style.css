@@ -1,0 +1,185 @@
+/* Anang Setiaji */
+
+body { /* styling body background dan font-family keseluruhan, serta membuat margin dan padding body menjadi 0 */
+    background-color: #FFFFFF;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0%;
+    padding: 0%;
+}
+
+.main-title {
+    display: flex;
+    background: #9CDBA6;
+    color: white;
+    justify-content: center;
+    padding: 5px;
+    text-align: center;
+}
+
+h2{
+    font-weight: 400;
+}
+
+p {
+    text-align: justify;
+
+}
+
+.jenis {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rad-btn {
+    display: flex;
+    gap: 20px;
+    font-size: larger;
+}
+
+.input-title {
+    font-weight: bold;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+/* style untuk konten bagian kiri halaman */
+.left-content {
+    border-radius: 20px;
+    padding: 35px;
+    margin: 20px;
+    flex: 1;
+}
+
+/* mengatur form menjadi flex column dan menambah gap 10 agar tidak terlalu berdempetan */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #508D4E;
+    padding: 20px;
+    border-radius: 10px;
+    width: 40%;
+}
+
+.right-content {
+    background: #D6EFD8;
+    padding: 35px;
+    margin: 20px;
+    flex: 1;
+    border-radius: 20px;
+}
+
+.mid-content-form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+label {
+    font-weight: bold;
+    color: white;
+}
+
+.mid-content-form div{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+input[type=number] {
+    padding: 12px 20px;
+    font-size: xx-large;
+    text-align: center;
+    border-radius: 10px;
+    border: 5px solid #1A5319;
+}
+
+.btn-sub-res {
+    display: flex;
+    gap: 10px;
+}
+
+button[type=button] {
+    padding: 15px;
+    background-color: #3572EF;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+button[type=reset] {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+}
+
+button:hover {
+    background: #468585;
+}
+
+.right-content-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: #508D4E;
+    border-radius: 10px;
+    color: white;
+}
+
+.right-content-section h2{
+    font-size: xx-large;
+}
+
+footer {
+    text-align: center;
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+#popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    background: #508D4E;
+    border-radius: 10px;
+    color: white;
+    padding: 20px;
+    box-shadow: 0 0  10px rgba(0, 0, 0, 0.25);
+    z-index: 20;
+    transition: transform 0.3s ease;
+}
+
+#popup.show {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#popup.hide {
+    transform: translate(-50%, -50%) scale(0.7);
+}
+
+#popup button {
+    border-radius: 5px;
+    background: #9CDBA6;
+    color: white;
+    border: none;
+    padding: 10px;
+}
