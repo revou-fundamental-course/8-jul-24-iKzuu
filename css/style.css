@@ -9,7 +9,7 @@ body { /* styling body background dan font-family keseluruhan, serta membuat mar
 
 .main-title {
     display: flex;
-    background: #9CDBA6;
+    background: #508D4E;
     color: white;
     justify-content: center;
     padding: 5px;
@@ -107,7 +107,7 @@ input[type=number] {
 
 button[type=button] {
     padding: 15px;
-    background-color: #3572EF;
+    background-color: #50B498;
     color: white;
     border: none;
     border-radius: 10px;
@@ -115,6 +115,21 @@ button[type=button] {
 
 button[type=reset] {
     padding: 15px;
+    border: none;
+    border-radius: 10px;
+}
+
+.reset-btn {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+}
+
+.download-btn {
+    font-size: 15px;
+    color: white;
+    background: #508D4E;
+    padding: 20px;
     border: none;
     border-radius: 10px;
 }
@@ -188,4 +203,8 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
 }

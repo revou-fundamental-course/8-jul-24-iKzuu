@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator BMI</title>
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="icon" href="/image/">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="image/icon.png">
   </head>
   <body>
     <!-- Main Title -->
@@ -61,7 +61,7 @@
 
             <div class="btn-sub-res">
               <button onclick="validateForm()" type="button">Hitung BMI</button>
-              <button type="reset">Reset</button>
+              <button class="reset-btn" onclick="resetButton()">Reset</button>
             </div>
 
           </form>
@@ -120,6 +120,8 @@
             <p id="article-hasil"></p>
           </article>
 
+          <button onclick="downloadHasil()" class="download-btn">Download Hasil</button>
+
           <!-- General Information -->
           <section>
             <div class="gen-info">
@@ -167,6 +169,6 @@
      </div>
 
     <!-- Javascript connect -->
-    <script src="/javascript/script.js"></script>
+    <script src="javascript/script.js"></script>
   </body>
 </html>
