@@ -2,7 +2,6 @@
 
 function showPopup(message) { // function untuk menampilkan pop up + message
     document.getElementById('popupMessage').textContent = message;
-    // document.getElementById('popup').style.display = 'block';
     document.getElementById('overlay').style.display = 'block';
     const popup = document.getElementById('popup');
     popup.style.display = 'block';
@@ -12,7 +11,7 @@ function showPopup(message) { // function untuk menampilkan pop up + message
     });
 }
 
-function closePopup(){ // functon untuk close pop up
+function closePopup(){ // function untuk close pop up
     const popup = document.getElementById('popup');
     popup.classList.remove('show');
     popup.classList.add('hide');
