@@ -2,7 +2,6 @@
 
 function showPopup(message) { // function untuk menampilkan pop up + message
     document.getElementById('popupMessage').textContent = message;
-    // document.getElementById('popup').style.display = 'block';
     document.getElementById('overlay').style.display = 'block';
     const popup = document.getElementById('popup');
     popup.style.display = 'block';
@@ -24,21 +23,43 @@ function closePopup(){ // functon untuk close pop up
 
 function validateForm() { // function validasi form
     const selectedGender = document.querySelector('input[name="option"]:checked'); 
-    let tinggi = parseFloat(document.getElementById('tinggi').value) / 100; // mengambil value dari input html dengan id='tinggi' yang kemudian di konversi menjadi meter menggunakan /100
-    let usia = parseInt(document.getElementById('usia').value); // mengambil value dari input html dengan id='usia'
-    let berat = parseFloat(document.getElementById('berat').value); // mengambil value dari input html dengan id='berat'
+    let tinggi = document.getElementById('tinggi').value.trim(); // mengambil value dari input html dengan id='tinggi' dengan menghilangkan spasi di awal dan akhir
+    let usia = document.getElementById('usia').value.trim(); // mengambil value dari input html dengan id='usia' dengan menghilangkan spasi di awal dan akhir
+    let berat = document.getElementById('berat').value.trim(); // mengambil value dari input html dengan id='berat' dengan menghilangkan spasi di awal dan akhir
 
     if(!selectedGender) {
         showPopup("Silahkan pilih Jenis Kelamin");
         return;
     }
 
-    if(isNaN(usia) || isNaN(berat) || isNaN(tinggi)) { // ketika input kosong atau "e"
+    if(tinggi === "" || berat === "" || usia === "") { // ketika input kosong atau "e"
         showPopup("Silahkan isi semua data"); // akan muncul popup dengan message
         return;
     }
 
-    if(parseInt(usia) < 18) { // menghandle jika usia yang user masukkan di bawah 18 tahun
+    // validasi untuk tinggi badan: harus angka dan tidak boleh ada simbol
+    let tggi = parseFloat(tinggi.replace(",", ".")); // mengganti koma dengan titik untuk format desimal
+    if (isNaN(tggi) || !/^\d+(\.\d+)?$/.test(tinggi)) { // Memeriksa apakah tinggi adalah angka
+        showPopup("Tinggi badan harus berupa angka yang valid");
+        return;
+    }
+
+    // Validasi untuk usia: harus angka dan tidak boleh ada simbol
+    let umur = parseInt(usia, 10); // Memeriksa apakah usia adalah angka bulat
+    if (isNaN(umur) || !/^\d+$/.test(usia)) {
+        showPopup("Usia harus berupa angka yang valid");
+        return;
+    }
+
+    // validasi untuk berat badan: harus angka dan tidak boleh ada simbol
+    let beratbdn = parseFloat(berat.replace(",", ".")); // sama seperti tinggi
+    if(isNaN(beratbdn) || !/^\d+(\.\d+)?$/.test(berat)) { // sama seperti tinggi
+        showPopup("Berat badan harus berupa angka yang valid");
+        return;
+    }
+
+
+    if(usia < 18) { // menghandle jika usia yang user masukkan di bawah 18 tahun
         showPopup("Perhitungan BMI hanya untuk orang dewasa (usia 18 tahun ke atas)!");
         return;
     }
@@ -91,4 +112,44 @@ function hitungBadan() { // function untuk tombol Hitung BMI
 
         document.getElementById('anda-memiliki').innerHTML = "Badan anda terlalu besar";
     }
+}
+
+function downloadHasil () {
+    // mengumpulkan data yang ingin di download
+    let hasil = document.getElementById('hasil').textContent;
+    let angkaHasil = document.getElementById('angka-hasil').textContent.trim();
+    let andaMemiliki = document.getElementById('anda-memiliki').textContent;
+    let gender = document.getElementById('gender').textContent;
+    let umur = document.getElementById('umur').textContent;
+    let articleHasil = document.getElementById('article-hasil').textContent;
+
+    if (angkaHasil === "hasil hitung akan di tampilkan disini") {
+        showPopup("Harap hitung BMI terlebih dahulu sebelum mengunduh hasil.");
+        return;
+    }
+
+    // hasil yang akan di tampilkanpada file.txt ketika di download
+    let downloadContent =  `
+        Hasil : ${hasil}
+        Angka Hasil : ${angkaHasil}
+        Berat Badan : ${andaMemiliki}
+
+        ${gender}
+        ${umur}
+
+        Hasil Perhitungan :
+        ${articleHasil}
+    `
+
+    // membuat object blob dari hasil yang akan di download
+    let blob = new Blob([downloadContent], { type: 'text/plain' });
+
+    let url = URL.createObjectURL(blob);
+
+    let a = document.createElement('a');
+    a.href = url;
+    a.download = 'hasil_perhitungan_bmi.txt';
+    a.click();
+
+    URL.revokeObjectURL(url);
 }
