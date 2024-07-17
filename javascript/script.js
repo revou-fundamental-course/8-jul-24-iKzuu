@@ -153,3 +153,19 @@ function downloadHasil () {
 
     URL.revokeObjectURL(url);
 }
+
+// membuat reset button
+function resetButton() {
+    // clear input form
+    document.getElementById('tinggi').value = '';
+    document.getElementById('umur').value = '';
+    document.getElementById('berat').value = '';
+
+    // reset hasil bmi
+    document.getElementById('hasil').textContent = '';
+    document.getElementById('angka-hasil').textContent = 'hasil hitung akan di tampilkan disini';
+    document.getElementById('anda-memiliki').textContent = '';
+    document.getElementById('gender').textContent = '';
+    document.getElementById('umur').textContent = '';
+    document.getElementById('article-hasil').textContent = '';
+}
