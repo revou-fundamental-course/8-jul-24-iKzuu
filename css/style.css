@@ -208,3 +208,42 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
+
+/* Media query untuk tampilan handphone */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column; /* Layout kolom untuk tampilan handphone */
+    }
+
+    form {
+        width: 85%;
+        
+    }
+
+    input[type=number], label {
+        font-size: medium; 
+        padding: 10px;
+    }
+
+    .left-content, .right-content {
+        flex: 1 1 100%;
+    }
+
+    .btn-sub-res {
+        flex-direction: column; /* Tombol di bawah input pada tampilan handphone */
+        gap: 10px; /* Jarak antar elemen yang lebih kecil */
+    }
+
+    .right-content-section h2 {
+        font-size: medium;
+    }
+
+    #section-form-article {
+        display: none;
+    }
+
+    /* menyesuaikan tombol untuk tampilan handphone */
+    button[type=button], button[type=reset] { 
+        padding: 10px 15px;
+    }
+}
